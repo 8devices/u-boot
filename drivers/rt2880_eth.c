@@ -1340,6 +1340,14 @@ void rt305x_esw_init(void)
 #else
 #error "Chip is not supported"
 #endif // RT3052_ASIC_BOARD //
+
+	/* Power-down all PHY except #0 */
+	mii_mgr_write(1, 0, 0x3900);
+	mii_mgr_write(2, 0, 0x3900);
+	mii_mgr_write(3, 0, 0x3900);
+	mii_mgr_write(4, 0, 0x3900);
+	mii_mgr_write(5, 0, 0x3900);
+
 #endif // RT3052_ASIC_BOARD || RT3352_ASIC_BOARD //
 
 }
